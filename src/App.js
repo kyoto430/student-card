@@ -31,20 +31,20 @@ function App() {
     <>
       <Switch>
         <Route
-          path="/"
+          path="/student-card"
           exact
           render={(props) => (
             <StudentCard student={student} onDelete={handleDelete} />
           )}
         />
         <Route
-          path="/student/edit"
+          path="/student-card/student/edit"
           render={(props) => (
             <StudentCardForm student={student} onAdd={addStudent} />
           )}
         />
         <Route
-          path="/student"
+          path="/student-card/student"
           render={(props) => <StudentCardForm onAdd={addStudent} />}
         />
       </Switch>
