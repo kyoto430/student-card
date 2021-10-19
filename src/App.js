@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import StudentCard from './components/StudentCard'
 import StudentCardForm from './components/StudentCardForm'
 
@@ -29,9 +29,7 @@ function App() {
 
   return (
     <>
-      <Link to="/">
-        <button>Открыть карточку</button>
-      </Link>
+      <h1>Карточка студента</h1>
       <Switch>
         <Route
           path="/"
