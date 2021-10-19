@@ -29,7 +29,6 @@ function App() {
 
   return (
     <>
-      <h1>Карточка студента</h1>
       <Switch>
         <Route
           path="/"
