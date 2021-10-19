@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect, Link } from 'react-router-dom'
 import StudentCard from './components/StudentCard'
 import StudentCardForm from './components/StudentCardForm'
 
@@ -29,6 +29,9 @@ function App() {
 
   return (
     <>
+      <Link to="/">
+        <button className="btn-primary btn">Открыть карточку</button>
+      </Link>
       <Switch>
         <Route
           path="/"
@@ -47,6 +50,7 @@ function App() {
           path="/student"
           render={(props) => <StudentCardForm onAdd={addStudent} />}
         />
+        <Redirect to="/" />
       </Switch>
     </>
   )
