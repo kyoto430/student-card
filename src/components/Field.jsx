@@ -2,6 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Field = ({ label, type, name, value, onChange, error }) => {
+  const getInputClasses = () => {
+    return 'form-control' + (error ? ' is-invalid' : '')
+  }
   return (
     <div className="mb-3">
       <div>
@@ -14,8 +17,9 @@ const Field = ({ label, type, name, value, onChange, error }) => {
           value={value}
           name={name}
           onChange={onChange}
+          className={getInputClasses()}
         />
-        {error && <p>{error}</p>}
+        {error && <div className="invalid-feedback">{error}</div>}
       </div>
     </div>
   )

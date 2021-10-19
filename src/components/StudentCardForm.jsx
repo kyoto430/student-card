@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Field from './Field'
 import { validator } from '../utils/validator'
+import RenderCard from './RenderCard'
 
 const StudentCardForm = () => {
+  const [student, setStudent] = useState()
   const [errors, setErrors] = useState({})
   const [data, setData] = useState({
     name: '',
@@ -14,15 +16,25 @@ const StudentCardForm = () => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }))
   }
   const validatorConfig = {
-    name: { isRequired: { message: 'Поле Имя обязательно для заполнения' } },
+    name: {
+      isRequired: { message: 'Поле Имя обязательно для заполнения' },
+      isLetters: { message: 'Поле должно содержать буквы' },
+    },
     surname: {
       isRequired: { message: 'Поле Фамилия обязательно для заполнения' },
+      isLetters: { message: 'Поле должно содержать буквы' },
     },
     age: {
       isRequired: { message: 'Поле Дата рождения обязательно для заполнения' },
+      isDate: {
+        message: 'Поле введено не корректно',
+      },
     },
     portfolio: {
       isRequired: { message: 'Поле Портфолио обязательно для заполнения' },
+      isLink: {
+        message: 'Поле должно содердать ссылку',
+      },
     },
   }
   useEffect(() => {
@@ -33,13 +45,18 @@ const StudentCardForm = () => {
     setErrors(errors)
     return Object.keys(errors).length === 0
   }
+  const isValid = Object.keys(errors).length === 0
   const handleSubmit = (e) => {
     e.preventDefault()
     const isValid = validate()
     if (!isValid) return
     console.log(data)
+    setStudent(data)
   }
-  return (
+
+  return student ? (
+    <RenderCard student={student} />
+  ) : (
     <div className="container">
       <h1>Создать</h1>
       <form onSubmit={handleSubmit}>
@@ -75,7 +92,11 @@ const StudentCardForm = () => {
           onChange={handleChange}
           error={errors.portfolio}
         />
-        <button type="submit" className="btn btn-primary mt-2">
+        <button
+          type="submit"
+          className="btn btn-primary mt-2"
+          disabled={!isValid}
+        >
           Создать
         </button>
       </form>
