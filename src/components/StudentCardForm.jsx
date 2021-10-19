@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import Field from './Field'
+import { Link } from 'react-router-dom'
 import { validator } from '../utils/validator'
-import RenderCard from './RenderCard'
+import { useHistory } from 'react-router'
 
-const StudentCardForm = () => {
-  const [student, setStudent] = useState()
+const StudentCardForm = ({ onAdd, student }) => {
+  const history = useHistory()
   const [errors, setErrors] = useState({})
-  const [data, setData] = useState({
-    name: '',
-    surname: '',
-    age: '',
-    portfolio: '',
-  })
+  const [data, setData] = useState(
+    student
+      ? {
+          name: student.name,
+          surname: student.surname,
+          age: student.age,
+          portfolio: student.portfolio,
+        }
+      : {
+          name: '',
+          surname: '',
+          age: '',
+          portfolio: '',
+        }
+  )
   const handleChange = ({ target }) => {
     setData((prevState) => ({ ...prevState, [target.name]: target.value }))
   }
@@ -51,12 +61,11 @@ const StudentCardForm = () => {
     const isValid = validate()
     if (!isValid) return
     console.log(data)
-    setStudent(data)
+    onAdd(data.name, data.surname, data.age, data.portfolio)
+    history.replace('/')
   }
 
-  return student ? (
-    <RenderCard student={student} />
-  ) : (
+  return (
     <div className="container">
       <h1>Создать</h1>
       <form onSubmit={handleSubmit}>
@@ -92,13 +101,30 @@ const StudentCardForm = () => {
           onChange={handleChange}
           error={errors.portfolio}
         />
-        <button
-          type="submit"
-          className="btn btn-primary mt-2"
-          disabled={!isValid}
-        >
-          Создать
-        </button>
+        {student ? (
+          <div>
+            <button
+              type="submit"
+              className="btn btn-primary m-2"
+              disabled={!isValid}
+            >
+              Обновить
+            </button>
+            <Link to="/">
+              <button type="button" className="btn btn-secondary">
+                Назад
+              </button>
+            </Link>
+          </div>
+        ) : (
+          <button
+            type="submit"
+            className="btn btn-primary mt-2"
+            disabled={!isValid}
+          >
+            Создать
+          </button>
+        )}
       </form>
     </div>
   )
