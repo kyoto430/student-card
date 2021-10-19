@@ -29,9 +29,6 @@ function App() {
 
   return (
     <>
-      <Link to="/">
-        <button className="btn-primary btn">Открыть карточку</button>
-      </Link>
       <Switch>
         <Route
           path="/"
