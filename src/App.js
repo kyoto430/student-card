@@ -31,8 +31,7 @@ function App() {
     <>
       <Switch>
         <Route
-          path="/"
-          exact
+          path="/student-card"
           render={(props) => (
             <StudentCard student={student} onDelete={handleDelete} />
           )}
@@ -47,7 +46,7 @@ function App() {
           path="/student"
           render={(props) => <StudentCardForm onAdd={addStudent} />}
         />
-        <Redirect to="/" />
+        <Redirect to="/student-card" />
       </Switch>
     </>
   )

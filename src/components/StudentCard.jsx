@@ -13,7 +13,7 @@ const StudentCard = ({ student, onDelete }) => {
             <Link to="/student/edit">
               <button className="btn btn-primary">Редактировать</button>
             </Link>
-            <Link to="/">
+            <Link to="/student-card">
               <button
                 className="btn btn-danger m-2"
                 type="button"
