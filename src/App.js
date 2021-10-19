@@ -23,13 +23,19 @@ function App() {
     })
   }
 
+  const handleDelete = () => {
+    localStorage.clear()
+  }
+
   return (
     <>
       <Switch>
         <Route
           path="/"
           exact
-          render={(props) => <StudentCard student={student} />}
+          render={(props) => (
+            <StudentCard student={student} onDelete={handleDelete} />
+          )}
         />
         <Route
           path="/student/edit"

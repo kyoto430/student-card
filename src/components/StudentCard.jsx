@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import RenderCard from './RenderCard'
 
-const StudentCard = ({ student }) => {
+const StudentCard = ({ student, onDelete }) => {
   return (
     <div className="container">
       <h1>Карточка студента</h1>
@@ -12,6 +12,15 @@ const StudentCard = ({ student }) => {
             <RenderCard student={student} />
             <Link to="/student/edit">
               <button className="btn btn-primary">Редактировать</button>
+            </Link>
+            <Link to="/">
+              <button
+                className="btn btn-danger m-2"
+                type="button"
+                onClick={onDelete}
+              >
+                Удалить
+              </button>
             </Link>
           </div>
         ) : (
