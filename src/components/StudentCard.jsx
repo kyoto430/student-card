@@ -10,10 +10,10 @@ const StudentCard = ({ student, onDelete }) => {
         {localStorage.length ? (
           <div>
             <RenderCard student={student} />
-            <Link to="/student-card/student/edit">
+            <Link to="/student/edit">
               <button className="btn btn-primary">Редактировать</button>
             </Link>
-            <Link to="/student-card">
+            <Link to="/">
               <button
                 className="btn btn-danger m-2"
                 type="button"
@@ -26,7 +26,7 @@ const StudentCard = ({ student, onDelete }) => {
         ) : (
           <div>
             <p>Нет данных</p>
-            <Link to="/student-card/student">
+            <Link to="/student">
               <button className="btn btn-primary">Добавить</button>
             </Link>
           </div>

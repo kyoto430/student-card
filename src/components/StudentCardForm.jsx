@@ -110,7 +110,7 @@ const StudentCardForm = ({ onAdd, student }) => {
             >
               Обновить
             </button>
-            <Link to="/student-card">
+            <Link to="/">
               <button type="button" className="btn btn-secondary">
                 Назад
               </button>

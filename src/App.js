@@ -29,23 +29,22 @@ function App() {
 
   return (
     <>
-      <h1>Test</h1>
       <Switch>
         <Route
-          path="/student-card"
+          path="/"
           exact
           render={(props) => (
             <StudentCard student={student} onDelete={handleDelete} />
           )}
         />
         <Route
-          path="/student-card/student/edit"
+          path="/student/edit"
           render={(props) => (
             <StudentCardForm student={student} onAdd={addStudent} />
           )}
         />
         <Route
-          path="/student-card/student"
+          path="/student"
           render={(props) => <StudentCardForm onAdd={addStudent} />}
         />
       </Switch>
