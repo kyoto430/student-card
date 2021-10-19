@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/kyoto430/student-card/static/css/main.2ae47eeb.chunk.css",
-    "main.js": "/kyoto430/student-card/static/js/main.09e0c62f.chunk.js",
-    "main.js.map": "/kyoto430/student-card/static/js/main.09e0c62f.chunk.js.map",
+    "main.js": "/kyoto430/student-card/static/js/main.2179342d.chunk.js",
+    "main.js.map": "/kyoto430/student-card/static/js/main.2179342d.chunk.js.map",
     "runtime-main.js": "/kyoto430/student-card/static/js/runtime-main.6ab7fd6d.js",
     "runtime-main.js.map": "/kyoto430/student-card/static/js/runtime-main.6ab7fd6d.js.map",
     "static/css/2.63ec5a3e.chunk.css": "/kyoto430/student-card/static/css/2.63ec5a3e.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.63ec5a3e.chunk.css",
     "static/js/2.4fb89b53.chunk.js",
     "static/css/main.2ae47eeb.chunk.css",
-    "static/js/main.09e0c62f.chunk.js"
+    "static/js/main.2179342d.chunk.js"
   ]
 }
