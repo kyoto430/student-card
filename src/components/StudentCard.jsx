@@ -7,7 +7,7 @@ const StudentCard = ({ student }) => {
     <div className="container">
       <h1>Карточка студента</h1>
       <div>
-        {student ? (
+        {localStorage.length ? (
           <div>
             <RenderCard student={student} />
             <Link to="/student/edit">

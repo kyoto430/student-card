@@ -6,15 +6,23 @@ import StudentCardForm from './components/StudentCardForm'
 function App() {
   const [student, setStudent] = useState()
   const addStudent = (name, surname, age, portfolio) => {
+    setStudent(
+      localStorage.setItem('name', name),
+      localStorage.setItem('surname', surname),
+      localStorage.setItem('age', age),
+      localStorage.setItem('portfolio', portfolio)
+    )
+  }
+
+  if (!student) {
     setStudent({
-      id: 1,
-      name,
-      surname,
-      age,
-      portfolio,
+      name: localStorage.getItem('name'),
+      surname: localStorage.getItem('surname'),
+      age: localStorage.getItem('age'),
+      portfolio: localStorage.getItem('portfolio'),
     })
   }
-  console.log(student)
+
   return (
     <>
       <Switch>

@@ -1,6 +1,14 @@
 import React from 'react'
 
 const RenderCard = ({ student }) => {
+  const date = new Date().getFullYear()
+  function declOfNum(number, words) {
+    return words[
+      number % 100 > 4 && number % 100 < 20
+        ? 2
+        : [2, 0, 1, 1, 1, 2][number % 10 < 5 ? Math.abs(number) % 10 : 5]
+    ]
+  }
   return (
     <div className="article-group">
       <div>
@@ -13,7 +21,10 @@ const RenderCard = ({ student }) => {
       </div>
       <div>
         <span className="fw-bold">Год рождения:</span>
-        <span>{student.age}</span>
+        <span>{`${student.age}(${date - student.age}${declOfNum(
+          `${date - student.age}`,
+          [' год', ' года', ' лет']
+        )})`}</span>
       </div>
       <div>
         <span className="fw-bold">Портфолио:</span>
