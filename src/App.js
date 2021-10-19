@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
 import StudentCard from './components/StudentCard'
 import StudentCardForm from './components/StudentCardForm'
 
@@ -29,15 +29,19 @@ function App() {
 
   return (
     <>
+      <Link to="/">
+        <button>Открыть карточку</button>
+      </Link>
       <Switch>
         <Route
-          path="/student-card"
+          path="/"
+          exact
           render={(props) => (
             <StudentCard student={student} onDelete={handleDelete} />
           )}
         />
         <Route
-          path="/student/edit"
+          path="/edit"
           render={(props) => (
             <StudentCardForm student={student} onAdd={addStudent} />
           )}
@@ -46,7 +50,6 @@ function App() {
           path="/student"
           render={(props) => <StudentCardForm onAdd={addStudent} />}
         />
-        <Redirect to="/student-card" />
       </Switch>
     </>
   )
